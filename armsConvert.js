@@ -2,6 +2,7 @@ local Players = game:GetService("Players")
 local StarterGui = game:GetService("StarterGui")
 local watchedPlayers = {"L0CKED_1N1"}
 local specialPlayer = "alt_acc9996"
+local Girlfriend = "adorxfleurys"
 getgenv().owner_watch_assigned_bool = false
 
 local function sendNotification(title, text, iconId, duration)
@@ -36,6 +37,12 @@ Players.PlayerAdded:Connect(function(player)
         sendNotification("Notification:", "Doing so will result in being blacklisted from the script.", "rbxassetid://1", 7)
         wait(0.6)
         sendNotification("Username:", specialPlayer, "rbxassetid://1", 4)
+    elseif player.Name == Girlfriend then
+        sendNotification("Alert!", "Script owners girlfriend has joined this server.", "rbxassetid://1", 6)
+        wait(0.3)
+        sendNotification("Note:", "Harassing will result in you being blacklisted on the spot.", "rbxassetid://1", 6)
+        wait()
+        sendNotification("Username:", Girlfriend, "rbxassetid://1", 5)
     end
 end)
 
@@ -44,6 +51,10 @@ Players.PlayerRemoving:Connect(function(player)
         sendNotification("Notification:", "Script owner has left the server!", "rbxassetid://1", 8)
     elseif player.Name == specialPlayer then
         sendNotification("Notification:", "Script owners daughter has left the server.", "rbxassetid://1", 6)
+    elseif player.Name == Girlfriend then
+        sendNotification("Notification:", "Script owners girlfriend has left the server.", "rbxassetid://1", 5)
+        wait(0.2)
+        sendNotification("Notification:", "You are good to go.", "rbxassetid://1", 5)
     end
 end)
 
@@ -57,5 +68,9 @@ for _, player in ipairs(Players:GetPlayers()) do
         sendNotification("Notification:", "Doing so will result in being blacklisted from the script.", "rbxassetid://1", 7)
         wait(0.6)
         sendNotification("Username:", specialPlayer, "rbxassetid://1", 4)
+    elseif player.Name == Girlfriend then
+        sendNotification("Alert!", "Script owner's girlfriend is in this server.", "rbxassetid://1", 7)
+        wait(0.2)
+        sendNotification("Alert!", "Harassment will result in an immediate blacklist.", "rbxassetid://1", 7)
     end
 end
