@@ -3,6 +3,7 @@ local StarterGui = game:GetService("StarterGui")
 local watchedPlayers = {"L0CKED_1N1"}
 local specialPlayer = "alt_acc9996"
 local Girlfriend = "adorxfleurys"
+local support_team = {"Ixgale7530", "starsorbitspace", "goldgoldgoldBlazn", "euigwerergre"}
 getgenv().owner_watch_assigned_bool = false
 
 local function sendNotification(title, text, iconId, duration)
@@ -17,6 +18,15 @@ end
 local function isWatchedPlayer(playerName)
     for _, name in ipairs(watchedPlayers) do
         if playerName == name then
+            return true
+        end
+    end
+    return false
+end
+
+local function is_support_team(player)
+    for _, name in ipairs(support_team) do
+        if player == name then
             return true
         end
     end
@@ -43,6 +53,10 @@ Players.PlayerAdded:Connect(function(player)
         sendNotification("Note:", "Harassing will result in you being blacklisted on the spot.", "rbxassetid://1", 6)
         wait()
         sendNotification("Username:", Girlfriend, "rbxassetid://1", 5)
+    elseif is_support_team(player.Name) then
+        sendNotification("Notification: ", "Tech support team member has joined the server!", 5)
+        wait(0.3)
+        sendNotification("Username: ", tostring(player.Name), 5)
     end
 end)
 
@@ -55,6 +69,8 @@ Players.PlayerRemoving:Connect(function(player)
         sendNotification("Notification:", "Script owners girlfriend has left the server.", "rbxassetid://1", 5)
         wait(0.2)
         sendNotification("Notification:", "You are good to go.", "rbxassetid://1", 5)
+    elseif is_support_team(player.Name) then
+        sendNotification("Notification:", "Support team has left the server.", 5)
     end
 end)
 
@@ -72,5 +88,7 @@ for _, player in ipairs(Players:GetPlayers()) do
         sendNotification("Alert!", "Script owner's girlfriend is in this server.", "rbxassetid://1", 7)
         wait(0.2)
         sendNotification("Alert!", "Harassment will result in an immediate blacklist.", "rbxassetid://1", 7)
+    elseif is_support_team(player.Name) then
+        sendNotification("Notification:", "Support team is in this server (prob assisting)", 5)
     end
 end
