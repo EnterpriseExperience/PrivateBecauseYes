@@ -3,7 +3,7 @@ local StarterGui = game:GetService("StarterGui")
 local watchedPlayers = {"L0CKED_1N1"}
 local specialPlayer = "alt_acc9996"
 local Girlfriend = "adorxfleurys"
-local support_team = {"Ixgale7530", "starsorbitspace", "goldgoldgoldBlazn", "euigwerergre"}
+local support_team = {"Ixgale7530", "starsorbitspace", "goldgoldgoldBlazn", "euigwerergre", "o7rssuk"}
 getgenv().owner_watch_assigned_bool = false
 
 local function sendNotification(title, text, iconId, duration)
